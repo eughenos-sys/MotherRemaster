@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoginManager : MonoBehaviour
@@ -27,11 +28,11 @@ public class LoginManager : MonoBehaviour
         UserBehaviour u =new UserBehaviour() {user=usr, password=pwd};
         if(!PlayerPrefs.HasKey(usr)){
             PlayerPrefs.SetString(usr,JsonUtility.ToJson(u));
-            //TODO: CAMBIO SCENA
+            SceneManager.LoadScene("DESKTOP",LoadSceneMode.Additive);
         }else{
             u=JsonUtility.FromJson<UserBehaviour>(PlayerPrefs.GetString(usr));
             if(u.password==pwd){
-                //login
+                SceneManager.LoadScene("DESKTOP",LoadSceneMode.Additive);
             }else{
                 //error message
             }
