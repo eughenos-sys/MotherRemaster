@@ -16,9 +16,9 @@ public class RootBreakerBehaviour : MonoBehaviour
     void Update()
     {
         
-        while (Time.deltaTime < Time.deltaTime+5f){
-            //genero caratteri e alla fine del ciclo text += carattere.
-            //when numero di caratteri in textbox = 12 end
-        }
+        //while (Time.deltaTime < Time.deltaTime+5f){
+        //    //genero caratteri e alla fine del ciclo text += carattere.
+        //    //when numero di caratteri in textbox = 12 end
+        //}
     }
 }

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 public enum HardwareType { CPU, FlashRAM, NetworkInterface }
-[CreateAssetMenu(fileName = "HardwareConfiguration", menuName = "Mother/Hardware", order = 1)]
-public class HardwareConfiguration:ScriptableObject
+public class HardwareConfiguration
 {
     public int Id;
     public string Name;

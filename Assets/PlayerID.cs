@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class PlayerID
 {
-    public static UserBehaviour Player;
+    public static User Player;
 }

@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (PlayerID.Player == null)
         {
-            PlayerID.Player = new UserBehaviour(){
+            PlayerID.Player = new User(){
                 user = "alfonso", password="123", rank = 2500, credit = 1000
             };
         }

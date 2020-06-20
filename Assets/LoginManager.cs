@@ -24,12 +24,12 @@ public class LoginManager : MonoBehaviour
     {
         var usr= txtUser.text;
         var pwd=txtPassword.text;
-        UserBehaviour u =new UserBehaviour() {user=usr, password=pwd};
+        User u = new User() {user=usr, password=pwd, credit=100, rank=100};
         if(!PlayerPrefs.HasKey(usr)){
             PlayerPrefs.SetString(usr,JsonUtility.ToJson(u));
             SceneManager.LoadScene("DESKTOP",LoadSceneMode.Additive);
         }else{
-            u=JsonUtility.FromJson<UserBehaviour>(PlayerPrefs.GetString(usr));
+            u=JsonUtility.FromJson<User>(PlayerPrefs.GetString(usr));
             if(u.password==pwd){
                 PlayerID.Player = u;
                 SceneManager.LoadScene("DESKTOP",LoadSceneMode.Additive);
