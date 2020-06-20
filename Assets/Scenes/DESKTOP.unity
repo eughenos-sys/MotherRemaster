@@ -3217,6 +3217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32691ba813f6dd14bb519ca3aee2b41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rootbreaker: {fileID: 1703997740}
+  interpolationPeriod: 1
 --- !u!1 &1741361266
 GameObject:
   m_ObjectHideFlags: 0
