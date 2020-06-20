@@ -10,10 +10,9 @@ public class RootBreakerBehaviour : MonoBehaviour
     private float charTime = 0.0f;
     public float interpolationPeriod = 3.0f;
     private int charactersFound=0;
-    private int passwordSize=12;
+    public int passwordSize=12;
     void Start()
     {
-        Debug.Log("ciao");
         
     }
 
