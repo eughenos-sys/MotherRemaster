@@ -31,6 +31,7 @@ public class LoginManager : MonoBehaviour
         }else{
             u=JsonUtility.FromJson<UserBehaviour>(PlayerPrefs.GetString(usr));
             if(u.password==pwd){
+                PlayerID.Player = u;
                 SceneManager.LoadScene("DESKTOP",LoadSceneMode.Additive);
             }else{
                 //error message

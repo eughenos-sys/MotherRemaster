@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Boo.Lang;
+using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class IniToAssetServer : MonoBehaviour
 {
+    public List<ServerConfiguration> slist = new List<ServerConfiguration>();
+    public string x;
+    public Image Map;
+    public GameObject Holder;
     public void Start()
     {
         //Load all Server INIs
@@ -18,7 +23,7 @@ public class IniToAssetServer : MonoBehaviour
             var path = string.Concat(Directory.GetCurrentDirectory(), AssetDatabase.GetAssetPath(file));
             path = path.Replace("/", "\\");
             //Still don't understand why it skips a slash.
-            path = path.Replace("MotherAssets", "Mother\\Assets");
+            path = path.Replace("MotherRemaster", "MotherRemaster\\");
             var dict = File.ReadAllLines(path)
                 .Where(line => !string.IsNullOrEmpty(line) && !ConsistsOfWhiteSpace(line) && !line.StartsWith("//") && !line.StartsWith("/*") && !line.StartsWith("*") && !line.StartsWith("*/") && !line.Contains("//"))
                 .Select(line => line.Split(new char[] { '=' }, 2, 0))
@@ -50,33 +55,35 @@ public class IniToAssetServer : MonoBehaviour
             if (temp != null) s.CantBeNuked = bool.Parse(temp);
             dict.TryGetValue("AllowRandomMission", out temp);
             if (temp != null) s.AllowRandomMission = bool.Parse(temp);
-            string x;
-            dict.TryGetValue("Users", out x);
-            if (x != null && Int32.Parse(x) > 0)
-            {
-                for (int i = 1; i <= Int32.Parse(x); i++)
-                {
-                    string ranking, credits;
-                    UserConfiguration u = new UserConfiguration();
-                    dict.TryGetValue("Username[" + i.ToString() + "]", out u.Username);
-                    dict.TryGetValue("Password[" + i.ToString() + "]", out u.Password);
-                    dict.TryGetValue("UserRanking[" + i.ToString() + "]", out ranking);
-                    dict.TryGetValue("UserCredits[" + i.ToString() + "]", out credits);
+            slist.Add(s);
+            GameObject.Instantiate(Holder, new Vector3(s.MapX, s.MapY, 0), Quaternion.identity, Map.transform);
+            //string x;
+            //dict.TryGetValue("Users", out x);
+            //if (x != null && Int32.Parse(x) > 0)
+            //{
+            //    for (int i = 1; i <= Int32.Parse(x); i++)
+            //    {
+            //        string ranking, credits;
+            //        UserConfiguration u = new UserConfiguration();
+            //        dict.TryGetValue("Username[" + i.ToString() + "]", out u.Username);
+            //        dict.TryGetValue("Password[" + i.ToString() + "]", out u.Password);
+            //        dict.TryGetValue("UserRanking[" + i.ToString() + "]", out ranking);
+            //        dict.TryGetValue("UserCredits[" + i.ToString() + "]", out credits);
 
-                    if (ranking != null) u.Ranking = Int32.Parse(ranking);
-                    if (credits != null) u.Credits = Int32.Parse(credits);
-                    //TODO: USERCLASS
-                    string uPath = "Assets/Data/Users/" + dict["Username[" + i.ToString() + "]"] + ".asset";
-                    uPath = uPath.Replace("\"", "");
-                    //Need to create the asset file before adding it to another SO
-                    AssetDatabase.CreateAsset(u, uPath);
-                    s.Users.Add(u);
-                }
-            }
+            //        if (ranking != null) u.Ranking = Int32.Parse(ranking);
+            //        if (credits != null) u.Credits = Int32.Parse(credits);
+            //        //TODO: USERCLASS
+            //        string uPath = "Assets/Data/Users/" + dict["Username[" + i.ToString() + "]"] + ".asset";
+            //        uPath = uPath.Replace("\"", "");
+            //        //Need to create the asset file before adding it to another SO
+            //        AssetDatabase.CreateAsset(u, uPath);
+            //        s.Users.Add(u);
+            //    }
+            //}
 
-            string assetpath = "Assets/Data/Servers/" + dict["ServerName"] + ".asset";
-            assetpath = assetpath.Replace("\"", "");
-            AssetDatabase.CreateAsset(s, assetpath);
+            //string assetpath = "Assets/Data/Servers/" + dict["ServerName"] + ".asset";
+            //assetpath = assetpath.Replace("\"", "");
+            //AssetDatabase.CreateAsset(s, assetpath);
         }
     }
 

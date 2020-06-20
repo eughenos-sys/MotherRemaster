@@ -11,6 +11,6 @@ public class PlayerBehaviour : UserConfiguration {
     public HardwareBehaviour CPU { get; set; }
     public HardwareBehaviour FlashRAM { get; set; }
     public HardwareBehaviour NetworkInterface { get; set; }
-    public List<ServerBehaviour> KnownServers { get; set; }
+    //public List<ServerBehaviour> KnownServers { get; set; }
     public PlayerOptions Options { get; set; }
 }

@@ -1,6 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-
-public class ServerBehaviour
+public class ServerBehaviour : MonoBehaviour
 {
+    public ServerConfiguration Server;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

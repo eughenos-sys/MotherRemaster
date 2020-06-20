@@ -1,0 +1,21 @@
+// Configurazione principale del Server...
+MapX=0
+MapY=0
+ServerName="hideway.bentekcorp"
+IP="147.12.36.100"
+WelcomeText="Bentek Corporation Network"+chr(13)+chr(10)+"Hideway Proxy Server Privato"
+ServerType=""
+TerminalInterface=-1
+Background=-1
+Protection=-1
+Firewall=false
+FirewallMask="*.*.*.*"
+Cpu=1000
+Net=100
+CantBeHacked=true
+CantBeNuked=true
+CantBeDestroyed=true
+AllowRandomMission=false
+MissGenFaction=""
+Users=0
+TotFiles=0
