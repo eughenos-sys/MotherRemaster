@@ -55,8 +55,7 @@ public class AutoText : MonoBehaviour
                     }
                     else if (Text[currentPosition] == '@')
                     {
-                        canvas.GetComponent<CanvasGroup>().DOFade(0, 2f);
-                        src.DOFade(0, 2f).OnComplete(() =>
+                        canvas.GetComponent<CanvasGroup>().DOFade(0, 2f).OnComplete(() =>
                         {
                             SceneManager.LoadScene("LOGIN");
                         });
@@ -76,6 +75,7 @@ public class AutoText : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
+        DontDestroyOnLoad(src);
         StartCoroutine(Init());
     }
 }
