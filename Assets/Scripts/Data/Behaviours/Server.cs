@@ -4,30 +4,46 @@ using UnityEngine;
 
 public class Server
 {
-    public int MapX;
-    public int MapY;
-    public string ServerName;
-    public string IPAddress;
-    public string WelcomeText;
-    public string ServerType;
-    public string TerminalInterface;
-    public float CPU;
-    public float NetworkInterface;
-    public string Protection;
-    public int ProtectionLevel;
-    public bool HasFireWall;
-    public string FirewallMask;
-    public bool CantBeNuked;
-    public bool CantBeHacked;
-    public bool CantBeDestroyed;
-    public bool AllowRandomMission;
-    public string MissGenFaction;
-    // public List<UserConfiguration> Users;
-    // public List<FileBehaviour> Contents;
+    public long MapX { get; set; }
 
+    public long MapY { get; set; }
+
+    public string ServerName { get; set; }
+
+    public string Ip { get; set; }
+
+    public string WelcomeText { get; set; }
+
+    public long ServerType { get; set; }
+
+    public long TerminalInterface { get; set; }
+
+    public long Background { get; set; }
+
+     public long ProtectionMode { get; set; }
+        public bool Firewall { get; set; }
+        public string FirewallMask { get; set; }
+
+    public long Cpu { get; set; }
+
+    public long Net { get; set; }
+
+    public bool CantBeHacked { get; set; }
+
+    public bool CantBeNuked { get; set; }
+
+    public bool CantBeDestroyed { get; set; }
+
+    public bool AllowRandomMission { get; set; }
+
+    public long MissGenFaction { get; set; }
+
+    public List<User> Users { get; set; }
+
+    public List<FileConfiguration> Files { get; set; }
     public Server()
     {
-        //    Users = new List<UserConfiguration>();
-        //     Contents = new List<FileBehaviour>();
+        Users = new List<User>();
+        Files = new List<FileConfiguration>();
     }
 }

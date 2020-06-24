@@ -8,5 +8,7 @@ public class FileConfiguration
  public int FileDim;
  public string FileImg;
  public string FileContents;
+
+ public string FileOwner;
  
 }

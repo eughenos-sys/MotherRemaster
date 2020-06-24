@@ -9,22 +9,18 @@ using UnityEngine.UI;
 public class LoginManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Image img;
     public TMPro.TextMeshProUGUI txtUser;
     public TMPro.TextMeshProUGUI txtPassword;
     void Awake()
     {
-        img.transform.position = new Vector3(0, 0, 0);
-        img.DOFade(0, 3);
         //qua dentro ti  inizializzi un server e poi lo converti in json e lo salvi in locale con PlayerPrefs.SetStirng("key","json")
-
     }
 
     public void executeLogin()
     {
         var usr = txtUser.text;
         var pwd = txtPassword.text;
-        User u = new User() { user = usr, password = pwd, credit = 100, rank = 100 };
+        User u = new User() { UserName = usr, Password = pwd, UserCredits = 100, UserRanking = 100 };
         if (!PlayerPrefs.HasKey(usr))
         {
             PlayerPrefs.SetString(usr, JsonUtility.ToJson(u));
@@ -33,7 +29,7 @@ public class LoginManager : MonoBehaviour
         else
         {
             u = JsonUtility.FromJson<User>(PlayerPrefs.GetString(usr));
-            if (u.password == pwd)
+            if (u.Password == pwd)
             {
                 GameData.player = u;
                 SceneManager.LoadScene("DESKTOP");

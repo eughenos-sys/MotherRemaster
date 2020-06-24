@@ -12,7 +12,7 @@ public class AutoText : MonoBehaviour
     int currentPosition = 0;
     public float Delay = 0.01f;
     private string currentString;
-    public string Text = "Advanced Megabios Plug and Play BIOS Extension v2.02a<br>Copyright(C) 2009, Advanced Megabios Corp.<br>";
+    public string Text = "Advanced Megabios Plug and Play BIOS Extension v2.02a<br>Copyright(C) 2022, Advanced Megabios Corp.<br>";
 
     public AudioSource src;
 
