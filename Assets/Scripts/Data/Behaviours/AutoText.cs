@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+using UnityEngine.Audio;
 
 public class AutoText : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class AutoText : MonoBehaviour
     public float Delay = 0.01f;
     private string currentString;
     public string Text = "Advanced Megabios Plug and Play BIOS Extension v2.02a<br>Copyright(C) 2009, Advanced Megabios Corp.<br>";
+
+    public AudioSource src;
+
+    public Canvas canvas;
 
     readonly string[] additionalLines = { "<br>",
         "    Rilevamento CPU      ... ",
@@ -48,7 +54,14 @@ public class AutoText : MonoBehaviour
                         currentPosition += 4;
                     }
                     else if (Text[currentPosition] == '@')
-                        SceneManager.LoadScene("Login");
+                    {
+                        canvas.GetComponent<CanvasGroup>().DOFade(0, 2f);
+                        src.DOFade(0, 2f).OnComplete(() =>
+                        {
+                            SceneManager.LoadScene("LOGIN");
+                        });
+                    }
+
                     else
                     {
                         GetComponent<TextMeshProUGUI>().text += Text[currentPosition];

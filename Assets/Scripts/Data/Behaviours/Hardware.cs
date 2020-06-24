@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 public enum HardwareType { CPU, FlashRAM, NetworkInterface }
-public class HardwareConfiguration
+public class Hardware
 {
     public int Id;
     public string Name;
