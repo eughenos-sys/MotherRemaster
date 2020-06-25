@@ -20,18 +20,18 @@ public class LoginManager : MonoBehaviour
     {
         var usr = txtUser.text;
         var pwd = txtPassword.text;
-        User u = new User() { UserName = usr, Password = pwd, UserCredits = 100, UserRanking = 100 };
         if (!PlayerPrefs.HasKey(usr))
         {
+            User u = new User() { UserName = usr, Password = pwd, UserCredits = 100, UserRanking = 100 };
             PlayerPrefs.SetString(usr, JsonUtility.ToJson(u));
             SceneManager.LoadScene("DESKTOP");
         }
         else
         {
-            u = JsonUtility.FromJson<User>(PlayerPrefs.GetString(usr));
-            if (u.Password == pwd)
+            User LoadUser = JsonUtility.FromJson<User>(PlayerPrefs.GetString(usr));
+            if (LoadUser.Password == pwd)
             {
-                GameData.player = u;
+                GameData.player = LoadUser;
                 SceneManager.LoadScene("DESKTOP");
             }
             else

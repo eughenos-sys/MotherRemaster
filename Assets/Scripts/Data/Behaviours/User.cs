@@ -64,7 +64,7 @@ public class User
     // public HardwareBehaviour NetworkInterface { get; set; }
     //public List<ServerBehaviour> KnownServers { get; set; }
 
-    public string MomPadText {get;set;}
+    public string MomPadText;
     public PlayerOptions Options { get; set; }
 
 }
