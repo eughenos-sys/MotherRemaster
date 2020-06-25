@@ -15,7 +15,8 @@ public class NetworkMapManager : MonoBehaviour
     {
         List<Vector3> positions = new List<Vector3>();
         Line.gameObject.transform.SetParent(MapTransform, false);
-positions.Add(new Vector3(890,577));
+        //localhost
+        positions.Add(new Vector3(890, 577));
         foreach (var item in GameData.Servers)
         {
             var x = Instantiate(Node);

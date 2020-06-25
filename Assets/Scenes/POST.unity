@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9c418fd4c607740a5af244799ec353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Delay: 0.001
+  Delay: 0.01
   Text: Advanced Megabios Plug and Play BIOS Extension v2.02a<br>Copyright(C) 2009,
     Advanced Megabios Corp.<br>
   src: {fileID: 407452138}
