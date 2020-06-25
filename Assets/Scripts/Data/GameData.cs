@@ -33,7 +33,6 @@ public class GameData : MonoBehaviour
         ){
             var svar = PlayerPrefs.GetString("servers");
             Servers = JsonConvert.DeserializeObject<List<Server>>(svar);
-            Debug.Log(svar);
             // Users = JsonUtility.FromJson<List<User>>(PlayerPrefs.GetString("users"));
             // Software = JsonUtility.FromJson<List<Software>>(PlayerPrefs.GetString("Software"));
             // Hardware = JsonUtility.FromJson<List<Hardware>>(PlayerPrefs.GetString("Hardware"));

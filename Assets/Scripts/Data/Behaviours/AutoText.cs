@@ -57,6 +57,7 @@ public class AutoText : MonoBehaviour
                     {
                         canvas.GetComponent<CanvasGroup>().DOFade(0, 2f).OnComplete(() =>
                         {
+                            DOTween.KillAll();
                             SceneManager.LoadScene("LOGIN");
                         });
                     }
