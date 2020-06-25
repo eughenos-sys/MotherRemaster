@@ -7,10 +7,10 @@ using UnityEngine;
 public class MomPadBehaviour : MonoBehaviour
 {
     // Start is called before the first frame update
-    public TextMeshProUGUI text;
+    public TMP_InputField text;
     void Start()
     {
-        text.SetText(GameData.player.MomPadText);
+        text.text=GameData.player.MomPadText;
     }
 
     public void Save()
