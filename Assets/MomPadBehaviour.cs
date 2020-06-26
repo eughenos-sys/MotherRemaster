@@ -17,5 +17,6 @@ public class MomPadBehaviour : MonoBehaviour
     {
         GameData.player.MomPadText = text.text;
         PlayerPrefs.SetString(GameData.player.UserName,JsonConvert.SerializeObject(GameData.player));
+        Destroy(this.gameObject);
     }
 }

@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 1083451487770243915}
   - component: {fileID: 1083451487770243918}
   m_Layer: 5
-  m_Name: NetworkMapPanel
+  m_Name: NetworkMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
